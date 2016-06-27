@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.user.mapper.DjhItemIteminfoMapper" >
+    <resultMap id="BaseResultMap" type="com.user.model.DjhItemIteminfo" >
+        <id column="item_id" property="itemId" />
+        <result column="seller_id" property="sellerId" />
+        <result column="seller_name" property="sellerName" />
+        <result column="item_title" property="itemTitle" />
+        <result column="item_image" property="itemImage" />
+        <result column="item_first_cate" property="itemFirstCate" />
+        <result column="item_second_cate" property="itemSecondCate" />
+        <result column="item_third_cate" property="itemThirdCate" />
+        <result column="item_type" property="itemType" />
+        <result column="item_sub_type" property="itemSubType" />
+        <result column="item_from" property="itemFrom" />
+        <result column="item_status" property="itemStatus" />
+        <result column="item_mark" property="itemMark" />
+        <result column="item_weight" property="itemWeight" />
+        <result column="item_sales" property="itemSales" />
+        <result column="item_view_count" property="itemViewCount" />
+        <result column="item_stock" property="itemStock" />
+        <result column="stock_change_rule" property="stockChangeRule" />
+        <result column="is_item_free" property="isItemFree" />
+        <result column="item_price" property="itemPrice" />
+        <result column="is_express_free" property="isExpressFree" />
+        <result column="item_express_info" property="itemExpressInfo" />
+        <result column="item_discount" property="itemDiscount" />
+        <result column="item_discount_point" property="itemDiscountPoint" />
+        <result column="item_attr_info" property="itemAttrInfo" />
+        <result column="item_spec_info" property="itemSpecInfo" />
+        <result column="item_express_fee" property="itemExpressFee" />
+        <result column="item_serial_number" property="itemSerialNumber" />
+        <result column="item_eva_count" property="itemEvaCount" />
+        <result column="item_fav_count" property="itemFavCount" />
+        <result column="item_custom_cls" property="itemCustomCls" />
+        <result column="course_unit" property="courseUnit" />
+        <result column="course_per_time" property="coursePerTime" />
+        <result column="course_goal" property="courseGoal" />
+        <result column="course_suit_object" property="courseSuitObject" />
+        <result column="course_arrange" property="courseArrange" />
+        <result column="course_refund_index" property="courseRefundIndex" />
+        <result column="course_insert_index" property="courseInsertIndex" />
+        <result column="item_post_time" property="itemPostTime" />
+        <result column="item_update_time" property="itemUpdateTime" />
+        <result column="item_put_time" property="itemPutTime" />
+        <result column="item_drop_time" property="itemDropTime" />
+        <result column="item_expire_time" property="itemExpireTime" />
+        <result column="item_disable_time" property="itemDisableTime" />
+        <result column="item_address_detail" property="itemAddressDetail" />
+        <result column="province_id" property="provinceId" />
+        <result column="city_id" property="cityId" />
+        <result column="area_id" property="areaId" />
+        <result column="item_location" property="itemLocation" />
+        <result column="qr_code" property="qrCode" />
+        <result column="item_longitude" property="itemLongitude" />
+        <result column="item_latitude" property="itemLatitude" />
+        <result column="item_describe" property="itemDescribe" />
+        <result column="buyer_count" property="buyerCount" />
+        <result column="item_video" property="itemVideo" />
+        <result column="item_discount_price" property="itemDiscountPrice" />
+        <result column="item_payment_plan" property="itemPaymentPlan" />
+        <result column="item_payment_rule" property="itemPaymentRule" />
+    </resultMap>
+
+    <resultMap id="ResultMapWithBLOBs" type="com.user.model.DjhItemIteminfo" extends="BaseResultMap" >
+        <result column="item_describe_detail" property="itemDescribeDetail" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        item_id, seller_id, seller_name, item_title, item_image, item_first_cate, item_second_cate, 
+        item_third_cate, item_type, item_sub_type, item_from, item_status, item_mark, item_weight, 
+        item_sales, item_view_count, item_stock, stock_change_rule, is_item_free, item_price, 
+        is_express_free, item_express_info, item_discount, item_discount_point, item_attr_info, 
+        item_spec_info, item_express_fee, item_serial_number, item_eva_count, item_fav_count, 
+        item_custom_cls, course_unit, course_per_time, course_goal, course_suit_object, course_arrange, 
+        course_refund_index, course_insert_index, item_post_time, item_update_time, item_put_time, 
+        item_drop_time, item_expire_time, item_disable_time, item_address_detail, province_id, 
+        city_id, area_id, item_location, qr_code, item_longitude, item_latitude, item_describe, 
+        buyer_count, item_video, item_discount_price, item_payment_plan, item_payment_rule
+    </sql>
+
+    <sql id="Blob_Column_List" >
+        item_describe_detail
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+        select 
+        <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
+        from djh_item_iteminfo
+        where item_id = #{itemId}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+        delete from djh_item_iteminfo
+        where item_id = #{itemId}
+    </delete>
+
+    <insert id="insert" parameterType="com.user.model.DjhItemIteminfo" >
+        insert into djh_item_iteminfo (item_id, seller_id, seller_name, item_title, item_image, item_first_cate, 
+            item_second_cate, item_third_cate, item_type, item_sub_type, item_from, 
+            item_status, item_mark, item_weight, item_sales, item_view_count, item_stock, 
+            stock_change_rule, is_item_free, item_price, is_express_free, item_express_info, 
+            item_discount, item_discount_point, item_attr_info, item_spec_info, item_express_fee, 
+            item_serial_number, item_eva_count, item_fav_count, item_custom_cls, course_unit, 
+            course_per_time, course_goal, course_suit_object, course_arrange, course_refund_index, 
+            course_insert_index, item_post_time, item_update_time, item_put_time, item_drop_time, 
+            item_expire_time, item_disable_time, item_address_detail, province_id, city_id, 
+            area_id, item_location, qr_code, item_longitude, item_latitude, item_describe, 
+            buyer_count, item_video, item_discount_price, item_payment_plan, item_payment_rule, 
+            item_describe_detail)
+        values (#{itemId}, #{sellerId}, #{sellerName}, #{itemTitle}, #{itemImage}, #{itemFirstCate}, 
+            #{itemSecondCate}, #{itemThirdCate}, #{itemType}, #{itemSubType}, #{itemFrom}, 
+            #{itemStatus}, #{itemMark}, #{itemWeight}, #{itemSales}, #{itemViewCount}, #{itemStock}, 
+            #{stockChangeRule}, #{isItemFree}, #{itemPrice}, #{isExpressFree}, #{itemExpressInfo}, 
+            #{itemDiscount}, #{itemDiscountPoint}, #{itemAttrInfo}, #{itemSpecInfo}, #{itemExpressFee}, 
+            #{itemSerialNumber}, #{itemEvaCount}, #{itemFavCount}, #{itemCustomCls}, #{courseUnit}, 
+            #{coursePerTime}, #{courseGoal}, #{courseSuitObject}, #{courseArrange}, #{courseRefundIndex}, 
+            #{courseInsertIndex}, #{itemPostTime}, #{itemUpdateTime}, #{itemPutTime}, #{itemDropTime}, 
+            #{itemExpireTime}, #{itemDisableTime}, #{itemAddressDetail}, #{provinceId}, #{cityId}, 
+            #{areaId}, #{itemLocation}, #{qrCode}, #{itemLongitude}, #{itemLatitude}, #{itemDescribe}, 
+            #{buyerCount}, #{itemVideo}, #{itemDiscountPrice}, #{itemPaymentPlan}, #{itemPaymentRule}, 
+            #{itemDescribeDetail})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.user.model.DjhItemIteminfo" >
+        insert into djh_item_iteminfo
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+            <if test="itemId != null" >
+                item_id,
+            </if>
+            <if test="sellerId != null" >
+                seller_id,
+            </if>
+            <if test="sellerName != null" >
+                seller_name,
+            </if>
+            <if test="itemTitle != null" >
+                item_title,
+            </if>
+            <if test="itemImage != null" >
+                item_image,
+            </if>
+            <if test="itemFirstCate != null" >
+                item_first_cate,
+            </if>
+            <if test="itemSecondCate != null" >
+                item_second_cate,
+            </if>
+            <if test="itemThirdCate != null" >
+                item_third_cate,
+            </if>
+            <if test="itemType != null" >
+                item_type,
+            </if>
+            <if test="itemSubType != null" >
+                item_sub_type,
+            </if>
+            <if test="itemFrom != null" >
+                item_from,
+            </if>
+            <if test="itemStatus != null" >
+                item_status,
+            </if>
+            <if test="itemMark != null" >
+                item_mark,
+            </if>
+            <if test="itemWeight != null" >
+                item_weight,
+            </if>
+            <if test="itemSales != null" >
+                item_sales,
+            </if>
+            <if test="itemViewCount != null" >
+                item_view_count,
+            </if>
+            <if test="itemStock != null" >
+                item_stock,
+            </if>
+            <if test="stockChangeRule != null" >
+                stock_change_rule,
+            </if>
+            <if test="isItemFree != null" >
+                is_item_free,
+            </if>
+            <if test="itemPrice != null" >
+                item_price,
+            </if>
+            <if test="isExpressFree != null" >
+                is_express_free,
+            </if>
+            <if test="itemExpressInfo != null" >
+                item_express_info,
+            </if>
+            <if test="itemDiscount != null" >
+                item_discount,
+            </if>
+            <if test="itemDiscountPoint != null" >
+                item_discount_point,
+            </if>
+            <if test="itemAttrInfo != null" >
+                item_attr_info,
+            </if>
+            <if test="itemSpecInfo != null" >
+                item_spec_info,
+            </if>
+            <if test="itemExpressFee != null" >
+                item_express_fee,
+            </if>
+            <if test="itemSerialNumber != null" >
+                item_serial_number,
+            </if>
+            <if test="itemEvaCount != null" >
+                item_eva_count,
+            </if>
+            <if test="itemFavCount != null" >
+                item_fav_count,
+            </if>
+            <if test="itemCustomCls != null" >
+                item_custom_cls,
+            </if>
+            <if test="courseUnit != null" >
+                course_unit,
+            </if>
+            <if test="coursePerTime != null" >
+                course_per_time,
+            </if>
+            <if test="courseGoal != null" >
+                course_goal,
+            </if>
+            <if test="courseSuitObject != null" >
+                course_suit_object,
+            </if>
+            <if test="courseArrange != null" >
+                course_arrange,
+            </if>
+            <if test="courseRefundIndex != null" >
+                course_refund_index,
+            </if>
+            <if test="courseInsertIndex != null" >
+                course_insert_index,
+            </if>
+            <if test="itemPostTime != null" >
+                item_post_time,
+            </if>
+            <if test="itemUpdateTime != null" >
+                item_update_time,
+            </if>
+            <if test="itemPutTime != null" >
+                item_put_time,
+            </if>
+            <if test="itemDropTime != null" >
+                item_drop_time,
+            </if>
+            <if test="itemExpireTime != null" >
+                item_expire_time,
+            </if>
+            <if test="itemDisableTime != null" >
+                item_disable_time,
+            </if>
+            <if test="itemAddressDetail != null" >
+                item_address_detail,
+            </if>
+            <if test="provinceId != null" >
+                province_id,
+            </if>
+            <if test="cityId != null" >
+                city_id,
+            </if>
+            <if test="areaId != null" >
+                area_id,
+            </if>
+            <if test="itemLocation != null" >
+                item_location,
+            </if>
+            <if test="qrCode != null" >
+                qr_code,
+            </if>
+            <if test="itemLongitude != null" >
+                item_longitude,
+            </if>
+            <if test="itemLatitude != null" >
+                item_latitude,
+            </if>
+            <if test="itemDescribe != null" >
+                item_describe,
+            </if>
+            <if test="buyerCount != null" >
+                buyer_count,
+            </if>
+            <if test="itemVideo != null" >
+                item_video,
+            </if>
+            <if test="itemDiscountPrice != null" >
+                item_discount_price,
+            </if>
+            <if test="itemPaymentPlan != null" >
+                item_payment_plan,
+            </if>
+            <if test="itemPaymentRule != null" >
+                item_payment_rule,
+            </if>
+            <if test="itemDescribeDetail != null" >
+                item_describe_detail,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+            <if test="itemId != null" >
+                #{itemId},
+            </if>
+            <if test="sellerId != null" >
+                #{sellerId},
+            </if>
+            <if test="sellerName != null" >
+                #{sellerName},
+            </if>
+            <if test="itemTitle != null" >
+                #{itemTitle},
+            </if>
+            <if test="itemImage != null" >
+                #{itemImage},
+            </if>
+            <if test="itemFirstCate != null" >
+                #{itemFirstCate},
+            </if>
+            <if test="itemSecondCate != null" >
+                #{itemSecondCate},
+            </if>
+            <if test="itemThirdCate != null" >
+                #{itemThirdCate},
+            </if>
+            <if test="itemType != null" >
+                #{itemType},
+            </if>
+            <if test="itemSubType != null" >
+                #{itemSubType},
+            </if>
+            <if test="itemFrom != null" >
+                #{itemFrom},
+            </if>
+            <if test="itemStatus != null" >
+                #{itemStatus},
+            </if>
+            <if test="itemMark != null" >
+                #{itemMark},
+            </if>
+            <if test="itemWeight != null" >
+                #{itemWeight},
+            </if>
+            <if test="itemSales != null" >
+                #{itemSales},
+            </if>
+            <if test="itemViewCount != null" >
+                #{itemViewCount},
+            </if>
+            <if test="itemStock != null" >
+                #{itemStock},
+            </if>
+            <if test="stockChangeRule != null" >
+                #{stockChangeRule},
+            </if>
+            <if test="isItemFree != null" >
+                #{isItemFree},
+            </if>
+            <if test="itemPrice != null" >
+                #{itemPrice},
+            </if>
+            <if test="isExpressFree != null" >
+                #{isExpressFree},
+            </if>
+            <if test="itemExpressInfo != null" >
+                #{itemExpressInfo},
+            </if>
+            <if test="itemDiscount != null" >
+                #{itemDiscount},
+            </if>
+            <if test="itemDiscountPoint != null" >
+                #{itemDiscountPoint},
+            </if>
+            <if test="itemAttrInfo != null" >
+                #{itemAttrInfo},
+            </if>
+            <if test="itemSpecInfo != null" >
+                #{itemSpecInfo},
+            </if>
+            <if test="itemExpressFee != null" >
+                #{itemExpressFee},
+            </if>
+            <if test="itemSerialNumber != null" >
+                #{itemSerialNumber},
+            </if>
+            <if test="itemEvaCount != null" >
+                #{itemEvaCount},
+            </if>
+            <if test="itemFavCount != null" >
+                #{itemFavCount},
+            </if>
+            <if test="itemCustomCls != null" >
+                #{itemCustomCls},
+            </if>
+            <if test="courseUnit != null" >
+                #{courseUnit},
+            </if>
+            <if test="coursePerTime != null" >
+                #{coursePerTime},
+            </if>
+            <if test="courseGoal != null" >
+                #{courseGoal},
+            </if>
+            <if test="courseSuitObject != null" >
+                #{courseSuitObject},
+            </if>
+            <if test="courseArrange != null" >
+                #{courseArrange},
+            </if>
+            <if test="courseRefundIndex != null" >
+                #{courseRefundIndex},
+            </if>
+            <if test="courseInsertIndex != null" >
+                #{courseInsertIndex},
+            </if>
+            <if test="itemPostTime != null" >
+                #{itemPostTime},
+            </if>
+            <if test="itemUpdateTime != null" >
+                #{itemUpdateTime},
+            </if>
+            <if test="itemPutTime != null" >
+                #{itemPutTime},
+            </if>
+            <if test="itemDropTime != null" >
+                #{itemDropTime},
+            </if>
+            <if test="itemExpireTime != null" >
+                #{itemExpireTime},
+            </if>
+            <if test="itemDisableTime != null" >
+                #{itemDisableTime},
+            </if>
+            <if test="itemAddressDetail != null" >
+                #{itemAddressDetail},
+            </if>
+            <if test="provinceId != null" >
+                #{provinceId},
+            </if>
+            <if test="cityId != null" >
+                #{cityId},
+            </if>
+            <if test="areaId != null" >
+                #{areaId},
+            </if>
+            <if test="itemLocation != null" >
+                #{itemLocation},
+            </if>
+            <if test="qrCode != null" >
+                #{qrCode},
+            </if>
+            <if test="itemLongitude != null" >
+                #{itemLongitude},
+            </if>
+            <if test="itemLatitude != null" >
+                #{itemLatitude},
+            </if>
+            <if test="itemDescribe != null" >
+                #{itemDescribe},
+            </if>
+            <if test="buyerCount != null" >
+                #{buyerCount},
+            </if>
+            <if test="itemVideo != null" >
+                #{itemVideo},
+            </if>
+            <if test="itemDiscountPrice != null" >
+                #{itemDiscountPrice},
+            </if>
+            <if test="itemPaymentPlan != null" >
+                #{itemPaymentPlan},
+            </if>
+            <if test="itemPaymentRule != null" >
+                #{itemPaymentRule},
+            </if>
+            <if test="itemDescribeDetail != null" >
+                #{itemDescribeDetail},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.user.model.DjhItemIteminfo" >
+        update djh_item_iteminfo
+        <set >
+            <if test="sellerId != null" >
+                seller_id = #{sellerId},
+            </if>
+            <if test="sellerName != null" >
+                seller_name = #{sellerName},
+            </if>
+            <if test="itemTitle != null" >
+                item_title = #{itemTitle},
+            </if>
+            <if test="itemImage != null" >
+                item_image = #{itemImage},
+            </if>
+            <if test="itemFirstCate != null" >
+                item_first_cate = #{itemFirstCate},
+            </if>
+            <if test="itemSecondCate != null" >
+                item_second_cate = #{itemSecondCate},
+            </if>
+            <if test="itemThirdCate != null" >
+                item_third_cate = #{itemThirdCate},
+            </if>
+            <if test="itemType != null" >
+                item_type = #{itemType},
+            </if>
+            <if test="itemSubType != null" >
+                item_sub_type = #{itemSubType},
+            </if>
+            <if test="itemFrom != null" >
+                item_from = #{itemFrom},
+            </if>
+            <if test="itemStatus != null" >
+                item_status = #{itemStatus},
+            </if>
+            <if test="itemMark != null" >
+                item_mark = #{itemMark},
+            </if>
+            <if test="itemWeight != null" >
+                item_weight = #{itemWeight},
+            </if>
+            <if test="itemSales != null" >
+                item_sales = #{itemSales},
+            </if>
+            <if test="itemViewCount != null" >
+                item_view_count = #{itemViewCount},
+            </if>
+            <if test="itemStock != null" >
+                item_stock = #{itemStock},
+            </if>
+            <if test="stockChangeRule != null" >
+                stock_change_rule = #{stockChangeRule},
+            </if>
+            <if test="isItemFree != null" >
+                is_item_free = #{isItemFree},
+            </if>
+            <if test="itemPrice != null" >
+                item_price = #{itemPrice},
+            </if>
+            <if test="isExpressFree != null" >
+                is_express_free = #{isExpressFree},
+            </if>
+            <if test="itemExpressInfo != null" >
+                item_express_info = #{itemExpressInfo},
+            </if>
+            <if test="itemDiscount != null" >
+                item_discount = #{itemDiscount},
+            </if>
+            <if test="itemDiscountPoint != null" >
+                item_discount_point = #{itemDiscountPoint},
+            </if>
+            <if test="itemAttrInfo != null" >
+                item_attr_info = #{itemAttrInfo},
+            </if>
+            <if test="itemSpecInfo != null" >
+                item_spec_info = #{itemSpecInfo},
+            </if>
+            <if test="itemExpressFee != null" >
+                item_express_fee = #{itemExpressFee},
+            </if>
+            <if test="itemSerialNumber != null" >
+                item_serial_number = #{itemSerialNumber},
+            </if>
+            <if test="itemEvaCount != null" >
+                item_eva_count = #{itemEvaCount},
+            </if>
+            <if test="itemFavCount != null" >
+                item_fav_count = #{itemFavCount},
+            </if>
+            <if test="itemCustomCls != null" >
+                item_custom_cls = #{itemCustomCls},
+            </if>
+            <if test="courseUnit != null" >
+                course_unit = #{courseUnit},
+            </if>
+            <if test="coursePerTime != null" >
+                course_per_time = #{coursePerTime},
+            </if>
+            <if test="courseGoal != null" >
+                course_goal = #{courseGoal},
+            </if>
+            <if test="courseSuitObject != null" >
+                course_suit_object = #{courseSuitObject},
+            </if>
+            <if test="courseArrange != null" >
+                course_arrange = #{courseArrange},
+            </if>
+            <if test="courseRefundIndex != null" >
+                course_refund_index = #{courseRefundIndex},
+            </if>
+            <if test="courseInsertIndex != null" >
+                course_insert_index = #{courseInsertIndex},
+            </if>
+            <if test="itemPostTime != null" >
+                item_post_time = #{itemPostTime},
+            </if>
+            <if test="itemUpdateTime != null" >
+                item_update_time = #{itemUpdateTime},
+            </if>
+            <if test="itemPutTime != null" >
+                item_put_time = #{itemPutTime},
+            </if>
+            <if test="itemDropTime != null" >
+                item_drop_time = #{itemDropTime},
+            </if>
+            <if test="itemExpireTime != null" >
+                item_expire_time = #{itemExpireTime},
+            </if>
+            <if test="itemDisableTime != null" >
+                item_disable_time = #{itemDisableTime},
+            </if>
+            <if test="itemAddressDetail != null" >
+                item_address_detail = #{itemAddressDetail},
+            </if>
+            <if test="provinceId != null" >
+                province_id = #{provinceId},
+            </if>
+            <if test="cityId != null" >
+                city_id = #{cityId},
+            </if>
+            <if test="areaId != null" >
+                area_id = #{areaId},
+            </if>
+            <if test="itemLocation != null" >
+                item_location = #{itemLocation},
+            </if>
+            <if test="qrCode != null" >
+                qr_code = #{qrCode},
+            </if>
+            <if test="itemLongitude != null" >
+                item_longitude = #{itemLongitude},
+            </if>
+            <if test="itemLatitude != null" >
+                item_latitude = #{itemLatitude},
+            </if>
+            <if test="itemDescribe != null" >
+                item_describe = #{itemDescribe},
+            </if>
+            <if test="buyerCount != null" >
+                buyer_count = #{buyerCount},
+            </if>
+            <if test="itemVideo != null" >
+                item_video = #{itemVideo},
+            </if>
+            <if test="itemDiscountPrice != null" >
+                item_discount_price = #{itemDiscountPrice},
+            </if>
+            <if test="itemPaymentPlan != null" >
+                item_payment_plan = #{itemPaymentPlan},
+            </if>
+            <if test="itemPaymentRule != null" >
+                item_payment_rule = #{itemPaymentRule},
+            </if>
+            <if test="itemDescribeDetail != null" >
+                item_describe_detail = #{itemDescribeDetail},
+            </if>
+        </set>
+        where item_id = #{itemId}
+    </update>
+
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.user.model.DjhItemIteminfo" >
+        update djh_item_iteminfo
+        set seller_id = #{sellerId},
+            seller_name = #{sellerName},
+            item_title = #{itemTitle},
+            item_image = #{itemImage},
+            item_first_cate = #{itemFirstCate},
+            item_second_cate = #{itemSecondCate},
+            item_third_cate = #{itemThirdCate},
+            item_type = #{itemType},
+            item_sub_type = #{itemSubType},
+            item_from = #{itemFrom},
+            item_status = #{itemStatus},
+            item_mark = #{itemMark},
+            item_weight = #{itemWeight},
+            item_sales = #{itemSales},
+            item_view_count = #{itemViewCount},
+            item_stock = #{itemStock},
+            stock_change_rule = #{stockChangeRule},
+            is_item_free = #{isItemFree},
+            item_price = #{itemPrice},
+            is_express_free = #{isExpressFree},
+            item_express_info = #{itemExpressInfo},
+            item_discount = #{itemDiscount},
+            item_discount_point = #{itemDiscountPoint},
+            item_attr_info = #{itemAttrInfo},
+            item_spec_info = #{itemSpecInfo},
+            item_express_fee = #{itemExpressFee},
+            item_serial_number = #{itemSerialNumber},
+            item_eva_count = #{itemEvaCount},
+            item_fav_count = #{itemFavCount},
+            item_custom_cls = #{itemCustomCls},
+            course_unit = #{courseUnit},
+            course_per_time = #{coursePerTime},
+            course_goal = #{courseGoal},
+            course_suit_object = #{courseSuitObject},
+            course_arrange = #{courseArrange},
+            course_refund_index = #{courseRefundIndex},
+            course_insert_index = #{courseInsertIndex},
+            item_post_time = #{itemPostTime},
+            item_update_time = #{itemUpdateTime},
+            item_put_time = #{itemPutTime},
+            item_drop_time = #{itemDropTime},
+            item_expire_time = #{itemExpireTime},
+            item_disable_time = #{itemDisableTime},
+            item_address_detail = #{itemAddressDetail},
+            province_id = #{provinceId},
+            city_id = #{cityId},
+            area_id = #{areaId},
+            item_location = #{itemLocation},
+            qr_code = #{qrCode},
+            item_longitude = #{itemLongitude},
+            item_latitude = #{itemLatitude},
+            item_describe = #{itemDescribe},
+            buyer_count = #{buyerCount},
+            item_video = #{itemVideo},
+            item_discount_price = #{itemDiscountPrice},
+            item_payment_plan = #{itemPaymentPlan},
+            item_payment_rule = #{itemPaymentRule},
+            item_describe_detail = #{itemDescribeDetail}
+        where item_id = #{itemId}
+    </update>
+
+    <update id="updateByPrimaryKey" parameterType="com.user.model.DjhItemIteminfo" >
+        update djh_item_iteminfo
+        set seller_id = #{sellerId},
+            seller_name = #{sellerName},
+            item_title = #{itemTitle},
+            item_image = #{itemImage},
+            item_first_cate = #{itemFirstCate},
+            item_second_cate = #{itemSecondCate},
+            item_third_cate = #{itemThirdCate},
+            item_type = #{itemType},
+            item_sub_type = #{itemSubType},
+            item_from = #{itemFrom},
+            item_status = #{itemStatus},
+            item_mark = #{itemMark},
+            item_weight = #{itemWeight},
+            item_sales = #{itemSales},
+            item_view_count = #{itemViewCount},
+            item_stock = #{itemStock},
+            stock_change_rule = #{stockChangeRule},
+            is_item_free = #{isItemFree},
+            item_price = #{itemPrice},
+            is_express_free = #{isExpressFree},
+            item_express_info = #{itemExpressInfo},
+            item_discount = #{itemDiscount},
+            item_discount_point = #{itemDiscountPoint},
+            item_attr_info = #{itemAttrInfo},
+            item_spec_info = #{itemSpecInfo},
+            item_express_fee = #{itemExpressFee},
+            item_serial_number = #{itemSerialNumber},
+            item_eva_count = #{itemEvaCount},
+            item_fav_count = #{itemFavCount},
+            item_custom_cls = #{itemCustomCls},
+            course_unit = #{courseUnit},
+            course_per_time = #{coursePerTime},
+            course_goal = #{courseGoal},
+            course_suit_object = #{courseSuitObject},
+            course_arrange = #{courseArrange},
+            course_refund_index = #{courseRefundIndex},
+            course_insert_index = #{courseInsertIndex},
+            item_post_time = #{itemPostTime},
+            item_update_time = #{itemUpdateTime},
+            item_put_time = #{itemPutTime},
+            item_drop_time = #{itemDropTime},
+            item_expire_time = #{itemExpireTime},
+            item_disable_time = #{itemDisableTime},
+            item_address_detail = #{itemAddressDetail},
+            province_id = #{provinceId},
+            city_id = #{cityId},
+            area_id = #{areaId},
+            item_location = #{itemLocation},
+            qr_code = #{qrCode},
+            item_longitude = #{itemLongitude},
+            item_latitude = #{itemLatitude},
+            item_describe = #{itemDescribe},
+            buyer_count = #{buyerCount},
+            item_video = #{itemVideo},
+            item_discount_price = #{itemDiscountPrice},
+            item_payment_plan = #{itemPaymentPlan},
+            item_payment_rule = #{itemPaymentRule}
+        where item_id = #{itemId}
+    </update>
+
+</mapper>

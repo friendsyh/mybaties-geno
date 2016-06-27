@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\5.1.9\mysql-connector-java-5.1.9.jar" />
+	<context id="context1">
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+			<property name="suppressDate" value="false" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.16.5:3306/djh_bss_v01c02" userId="root"
+			password="dajiahao" />
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<javaModelGenerator targetPackage="com.user.model"
+			targetProject="D:\project\mybaties-geno\src\main\java" />
+		<sqlMapGenerator targetPackage="com.user.mapper"
+			targetProject="D:\project\mybaties-geno\src\main\java" />
+		<javaClientGenerator targetPackage="com.user.mapper"
+			targetProject="D:\project\mybaties-geno\src\main\java" type="XMLMAPPER">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="djh_item_iteminfo" enableCountByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false"
+			enableSelectByExample="false" selectByExampleQueryId="false">
+		</table>
+	</context>
+
+
+</generatorConfiguration>
